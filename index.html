@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyBad Utilities</title>
+<meta name="description" content="Nettoyer, optimiser, diagnostiquer et mettre à jour son PC Windows, gratuitement.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --fond:#090b17; --carte:#0d1024; --bord:#f5f7ff24; --texte:#f5f7ff; --discret:#9aa1bf; --accent:#54d8ff; --violet:#8b5cf6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fond); color:var(--texte); font:16px/1.6 Inter, "Segoe UI", system-ui, sans-serif; }
+  a { color:var(--accent); }
+  .page { max-width:1040px; margin:0 auto; padding:0 16px; }
+  header { padding:28px 0; display:flex; align-items:center; gap:14px; }
+  header img { width:44px; height:44px; }
+  header b { font:700 18px "Space Grotesk", sans-serif; letter-spacing:.5px; }
+  header nav { margin-left:auto; display:flex; gap:18px; font-size:14px; }
+  header nav a { color:var(--discret); text-decoration:none; }
+  header nav a:hover { color:var(--texte); }
+  .hero { padding:56px 0 40px; text-align:center; }
+  .hero h1 { font:700 clamp(36px, 6vw, 60px)/1.05 "Space Grotesk", sans-serif; margin:0 0 16px;
+             background:linear-gradient(90deg, var(--violet), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p { color:var(--discret); font-size:18px; max-width:640px; margin:0 auto 32px; }
+  .boutons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .bouton { display:inline-flex; flex-direction:column; align-items:center; padding:14px 26px; border-radius:8px; text-decoration:none;
+            font:600 15px "Space Grotesk", sans-serif; letter-spacing:.6px; border:1px solid var(--bord); color:var(--texte); background:var(--carte); }
+  .bouton small { font:400 12px Inter, sans-serif; color:var(--discret); letter-spacing:0; margin-top:2px; }
+  .bouton.principal { background:var(--accent); color:var(--fond); border-color:var(--accent); }
+  .bouton.principal small { color:#0d1024b3; }
+  .bouton:hover { filter:brightness(1.08); }
+  .version { margin-top:16px; color:var(--discret); font-size:14px; }
+  h2 { font:700 26px "Space Grotesk", sans-serif; margin:56px 0 20px; }
+  .grille { display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:12px; }
+  .carte { background:var(--carte); border:1px solid var(--bord); border-radius:10px; padding:18px; }
+  .carte b { display:block; font:600 16px "Space Grotesk", sans-serif; margin-bottom:6px; }
+  .carte span { color:var(--discret); font-size:14px; }
+  .note { background:var(--carte); border:1px solid var(--bord); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; color:var(--discret); font-size:14px; margin-top:12px; }
+  footer { margin:64px 0 32px; color:var(--discret); font-size:13px; text-align:center; }
+  @media (max-width:560px) { header nav { display:none; } .hero { padding-top:24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <img src="logo.png" alt="">
+    <b>MYBAD UTILITIES</b>
+    <nav>
+      <a href="#fonctions" data-t="navFeatures">Fonctions</a>
+      <a href="https://github.com/DevKinou/MyBad-Utilities-Releases/releases" data-t="navReleases">Versions</a>
+      <a href="https://github.com/DevKinou/MyBad-Utilities-Releases/issues" data-t="navHelp">Aide</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>MyBad Utilities</h1>
+    <p data-t="tagline">Nettoyer, optimiser, diagnostiquer et mettre à jour votre PC Windows. Gratuit, sans pub, et rien n'est modifié sans votre accord.</p>
+    <div class="boutons">
+      <a class="bouton principal" id="setup" href="https://github.com/DevKinou/MyBad-Utilities-Releases/releases/latest/download/MyBadUtilities-Setup.exe">
+        <span data-t="setup">TÉLÉCHARGER L'INSTALLATEUR</span><small data-t="setupHint">Recommandé · sans droits administrateur</small></a>
+      <a class="bouton" id="portable" href="https://github.com/DevKinou/MyBad-Utilities-Releases/releases/latest/download/MyBadUtilities.exe">
+        <span data-t="portable">VERSION PORTABLE</span><small data-t="portableHint">Un seul fichier, sans installation</small></a>
+    </div>
+    <div class="version" id="version" data-t="versionLoading">Windows 10 et 11, 64 bits · mises à jour automatiques</div>
+  </section>
+
+  <h2 id="fonctions" data-t="features">Tout l'entretien du PC au même endroit</h2>
+  <div class="grille">
+    <div class="carte"><b data-t="f1t">Nettoyage</b><span data-t="f1">Fichiers inutiles, carte de l'espace disque, doublons, téléchargements et navigateurs.</span></div>
+    <div class="carte"><b data-t="f2t">Optimisation</b><span data-t="f2">Réglages de Windows et du jeu, tous réversibles, mémoire libérée automatiquement et Game Booster.</span></div>
+    <div class="carte"><b data-t="f3t">Mises à jour</b><span data-t="f3">Logiciels et pilotes en un clic, et tout un PC neuf installé d'un coup.</span></div>
+    <div class="carte"><b data-t="f4t">Pourquoi ça rame ?</b><span data-t="f4">30 secondes d'observation, puis ce qui ralentit le PC expliqué en clair.</span></div>
+    <div class="carte"><b data-t="f5t">Plantages des jeux</b><span data-t="f5">La piste la plus probable pour chaque jeu qui plante : pilote, incrustation, mémoire…</span></div>
+    <div class="carte"><b data-t="f6t">Matériel</b><span data-t="f6">Fiche complète, tests de la souris, du clavier et de l'écran, stress test.</span></div>
+    <div class="carte"><b data-t="f7t">Sécurité</b><span data-t="f7">Programmes suspects au démarrage, analyse antivirus, blocage des pubs et du pistage.</span></div>
+    <div class="carte"><b data-t="f8t">Désinstallation complète</b><span data-t="f8">Le désinstalleur, puis tout ce qu'il a laissé : dossiers, registre, tâches, services.</span></div>
+    <div class="carte"><b data-t="f9t">Récupération</b><span data-t="f9">Fichiers supprimés, sauvegarde de vos dossiers, points de restauration.</span></div>
+  </div>
+
+  <h2 data-t="installTitle">Installation</h2>
+  <div class="note" data-t="smartscreen">Au premier lancement, Windows peut afficher « Windows a protégé votre ordinateur » : l'appli n'est pas encore signée. Cliquez sur « Informations complémentaires », puis « Exécuter quand même ».</div>
+  <div class="note" data-t="admin">Lancée en administrateur, l'appli a accès à toutes ses fonctions ; sinon, elle tourne en mode limité et le signale.</div>
+
+  <footer>
+    <span data-t="footer">Fait par MyBad. Une question, un bug ?</span>
+    <a href="https://github.com/DevKinou/MyBad-Utilities-Releases/issues" data-t="report">Signaler un problème</a>
+  </footer>
+</div>
+<script>
+  // Anglais si le navigateur n'est pas en français.
+  const en = {
+    navFeatures: "Features", navReleases: "Releases", navHelp: "Help",
+    tagline: "Clean, optimize, troubleshoot and update your Windows PC. Free, no ads, and nothing is changed without your consent.",
+    setup: "DOWNLOAD THE INSTALLER", setupHint: "Recommended · no admin rights needed",
+    portable: "PORTABLE VERSION", portableHint: "A single file, no installation",
+    versionLoading: "Windows 10 and 11, 64-bit · automatic updates",
+    features: "All your PC maintenance in one place",
+    f1t: "Cleanup", f1: "Junk files, a disk space map, duplicates, downloads and browsers.",
+    f2t: "Optimization", f2: "Windows and gaming settings, all reversible, automatic memory cleaning and Game Booster.",
+    f3t: "Updates", f3: "Software and drivers in one click, and a whole new PC set up in one go.",
+    f4t: "Why is it slow?", f4: "30 seconds of observation, then what's slowing the PC down, in plain words.",
+    f5t: "Game crashes", f5: "The most likely cause for each crashing game: driver, overlay, memory…",
+    f6t: "Hardware", f6: "Full specs, mouse, keyboard and display tests, stress test.",
+    f7t: "Security", f7: "Suspicious startup programs, antivirus scans, ad and tracker blocking.",
+    f8t: "Complete uninstall", f8: "The uninstaller, then everything it left behind: folders, registry, tasks, services.",
+    f9t: "Recovery", f9: "Deleted files, folder backups, restore points.",
+    installTitle: "Installation",
+    smartscreen: "On first launch, Windows may show \"Windows protected your PC\": the app isn't signed yet. Click \"More info\", then \"Run anyway\".",
+    admin: "Run as administrator, the app can use all its features; otherwise it runs in limited mode and says so.",
+    footer: "Made by MyBad. A question, a bug?", report: "Report a problem",
+  };
+  const english = !(navigator.language || "fr").toLowerCase().startsWith("fr");
+  if (english) {
+    document.documentElement.lang = "en";
+    document.querySelectorAll("[data-t]").forEach(e => { if (en[e.dataset.t]) e.textContent = en[e.dataset.t]; });
+  }
+  // Dernière version publiée, pour l'afficher sous les boutons.
+  fetch("https://api.github.com/repos/DevKinou/MyBad-Utilities-Releases/releases/latest")
+    .then(r => r.ok ? r.json() : null)
+    .then(r => {
+      if (!r) return;
+      const v = r.tag_name.replace(/^v/, "");
+      const date = new Date(r.published_at).toLocaleDateString(english ? "en-GB" : "fr-FR", { day: "numeric", month: "long", year: "numeric" });
+      document.getElementById("version").textContent = english
+        ? `Version ${v} · ${date} · Windows 10 and 11, 64-bit`
+        : `Version ${v} du ${date} · Windows 10 et 11, 64 bits`;
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>
